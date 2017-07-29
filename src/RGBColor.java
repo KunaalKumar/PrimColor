@@ -42,4 +42,22 @@ public class RGBColor {
         return false;
     }
 
+    public boolean clean() {
+        if(r == 255) {
+            if(g == 255) {
+                if(b == 255) {
+                    return true;
+                }
+            }
+        }
+        else if(r == 0) {
+            if(g == 0) {
+                if(b == 0) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
 }

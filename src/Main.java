@@ -36,6 +36,12 @@ public class Main {
         }
 
         RGBColor mostPop = null;
+        // Clean up list for whites and blacks
+        for(int i = 0; i < colorList.size(); i++) {
+            if(colorList.get(i).clean() == true) {
+                colorList.remove(i);
+            }
+        }
         for(int i = 0; i < colorList.size(); i++) {
             if(mostPop == null) {
                 mostPop = colorList.get(i);
