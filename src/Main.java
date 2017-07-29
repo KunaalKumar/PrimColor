@@ -3,9 +3,12 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.ArrayList;
 
+//TODO: Add logic to ignore extreme darks and whites.
+//TODO: Make a color palette based on primary color.
+//TODO: Recreate image using colors from new color palette.
 public class Main {
     public static void main(String[] args) throws IOException {
-        File file = new File("Image/flowerY.jpg");
+        File file = new File("Image/flower.jpg");
         BufferedImage image = ImageIO.read(file);
         ArrayList<RGBColor> colorList = new ArrayList<RGBColor>();
 
