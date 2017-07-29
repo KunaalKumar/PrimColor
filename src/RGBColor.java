@@ -32,9 +32,9 @@ public class RGBColor {
     }
 
     public boolean isItSame(RGBColor col) {
-        if(Math.abs(col.getRed() - r) <= 10) {
-            if(Math.abs(col.getGreen() - g) <= 10) {
-                if(Math.abs(col.getBlue() - b) <= 10) {
+        if(Math.abs(col.getRed() - r) <= 20) {
+            if(Math.abs(col.getGreen() - g) <= 20) {
+                if(Math.abs(col.getBlue() - b) <= 20) {
                     return true;
                 }
             }
@@ -43,21 +43,11 @@ public class RGBColor {
     }
 
     public boolean clean() {
-        if(r == 255) {
-            if(g == 255) {
-                if(b == 255) {
-                    return true;
-                }
-            }
-        }
-        else if(r == 0) {
-            if(g == 0) {
-                if(b == 0) {
-                    return true;
-                }
-            }
-        }
-        return false;
+//        return r <= 100 && g <= 100 && b <= 100 || r >= 200 && g >= 200 && b >= 200;
+        return 200 <= r && r <= 255 && 200 <= g && g <= 255 && 200 <= b && b <= 255 || r <= 100 && g <= 100 && b <= 100 ;
     }
 
+    public String toString() {
+        return "(" + r + ", " + g + ", " + b + ")";
+    }
 }

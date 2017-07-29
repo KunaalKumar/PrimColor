@@ -8,9 +8,9 @@ import java.util.ArrayList;
 //TODO: Recreate image using colors from new color palette.
 public class Main {
     public static void main(String[] args) throws IOException {
-        File file = new File("Image/flower.jpg");
+        File file = new File("Image/RainbowTest.jpg");
         BufferedImage image = ImageIO.read(file);
-        ArrayList<RGBColor> colorList = new ArrayList<RGBColor>();
+        ArrayList<RGBColor> colorList = new ArrayList<>();
 
         for(int i = 0; i < image.getWidth(); i++) {
             for(int j = 0; j < image.getHeight(); j++) {
@@ -25,7 +25,7 @@ public class Main {
                 else {
                     boolean foundSame = false;
                     for(int k = 0; k < colorList.size(); k++) {
-                        if(colorList.get(k).isItSame(tempColor) == true) {
+                        if(colorList.get(k).isItSame(tempColor)) {
                             colorList.get(k).addCount();
                             foundSame = true;
                             break;
@@ -39,24 +39,26 @@ public class Main {
         }
 
         RGBColor mostPop = null;
+
+        ArrayList<RGBColor> newUpList = new ArrayList<>();
         // Clean up list for whites and blacks
         for(int i = 0; i < colorList.size(); i++) {
-            if(colorList.get(i).clean() == true) {
-                colorList.remove(i);
-            }
-        }
-        for(int i = 0; i < colorList.size(); i++) {
-            if(mostPop == null) {
-                mostPop = colorList.get(i);
-            }
-            else {
-                if(colorList.get(i).getCount() > mostPop.getCount()) {
-                    mostPop = colorList.get(i);
-                }
+            System.out.println("Checking" + colorList.get(i));
+            if(!colorList.get(i).clean()) {
+                newUpList.add(colorList.get(i));
             }
         }
 
-        System.out.println("(" + mostPop.getRed() + ", " + mostPop.getGreen() + ", " + mostPop.getBlue() + ")");
+        for(int i = 0; i < newUpList.size(); i++) {
+            if(mostPop == null) {
+                mostPop = newUpList.get(i);
+            }
+            if(newUpList.get(i).getCount() > mostPop.getCount()) {
+                mostPop = newUpList.get(i);
+            }
+        }
+
+        System.out.println(mostPop.toString() + " wins with a count of " +mostPop.getCount());
 
     }
 }
