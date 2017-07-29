@@ -1,4 +1,5 @@
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.ArrayList;
@@ -8,7 +9,13 @@ import java.util.ArrayList;
 //TODO: Recreate image using colors from new color palette.
 public class Main {
     public static void main(String[] args) throws IOException {
-        File file = new File("Image/RainbowTest.jpg");
+
+        FileDialog dialog = new FileDialog((Frame) null, "Select File to Open");
+        dialog.setMode(FileDialog.LOAD);
+        dialog.setVisible(true);
+        String fileC = dialog.getDirectory() + dialog.getFile();
+        System.out.println(fileC + " Chosen");
+        File file = new File(fileC);
         BufferedImage image = ImageIO.read(file);
         ArrayList<RGBColor> colorList = new ArrayList<>();
 
