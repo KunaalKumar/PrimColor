@@ -4,9 +4,7 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.ArrayList;
 
-//TODO: Add logic to ignore extreme darks and whites.
-//TODO: Make a color palette based on primary color.
-//TODO: Recreate image using colors from new color palette.
+//TODO: Instead of looking for most popular color, look for most distinctive color.
 public class Main {
     public static void main(String[] args) throws IOException {
 

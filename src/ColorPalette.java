@@ -33,6 +33,9 @@ public class ColorPalette {
         int b = color.getBlue();
         RGBColor temp = new RGBColor(r, g, b);
         double lum = temp.getLuminance();
+//        if(r == 255 && g == 255 && b == 255 || r == 0 && g == 0 && b ==0) {
+//            return color;
+//        }
         if(defLuminance == lum) {
             return new Color(mainColor.getRed(), mainColor.getGreen(), mainColor.getBlue());
         }
@@ -41,7 +44,7 @@ public class ColorPalette {
             return shade(st);
         }
         else {
-            double st = getCLosestTintStep(lum);
+            double st = getClosestTintStep(lum);
             return tint(st);
         }
     }
@@ -68,7 +71,7 @@ public class ColorPalette {
         return step;
     }
 
-    private double getCLosestTintStep(double lum) {
+    private double getClosestTintStep(double lum) {
         double smallestDif = Math.abs(lum - lumTintList[0]);
         double currentDif;
         double step = 0;
