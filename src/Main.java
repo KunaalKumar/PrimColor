@@ -24,7 +24,7 @@ public class Main {
         File file = new File(fileC);
         BufferedImage image = ImageIO.read(file);
         ArrayList<RGBColor> colorList = new ArrayList<>();
-
+        Color[][] c = new Color[image.getWidth()][image.getHeight()];
         for(int i = 0; i < image.getWidth(); i++) {
             for(int j = 0; j < image.getHeight(); j++) {
                 int color = image.getRGB(i, j);
@@ -32,6 +32,8 @@ public class Main {
                 int  green = (color & 0x0000ff00) >> 8;
                 int  blue  =  color & 0x000000ff;
                 RGBColor tempColor = new RGBColor(red, green, blue);
+                c[i][j] = new Color(image.getRGB(i, j));
+
                 if(colorList.size() == 0) {
                     colorList.add(tempColor);
                 }
@@ -73,6 +75,16 @@ public class Main {
         }
 
         System.out.println(mostPop.toString() + " wins with a count of " +mostPop.getCount());
+
+//        ColorPalette primCol = new ColorPalette(mostPop);
+//        for(int i = 0; i < image.getWidth(); i++) {
+//            for(int j = 0; j < image.getHeight(); j++) {
+//                image.setRGB(i, j, c[i][j].getRGB());
+//            }
+//        }
+
+        File output = new File("Modded.jpg");
+        ImageIO.write(image, "jpg", output);
 
     }
 }
