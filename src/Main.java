@@ -76,12 +76,12 @@ public class Main {
 
         System.out.println(mostPop.toString() + " wins with a count of " +mostPop.getCount());
 
-//        ColorPalette primCol = new ColorPalette(mostPop);
-//        for(int i = 0; i < image.getWidth(); i++) {
-//            for(int j = 0; j < image.getHeight(); j++) {
-//                image.setRGB(i, j, c[i][j].getRGB());
-//            }
-//        }
+        ColorPalette primCol = new ColorPalette(mostPop);
+        for(int i = 0; i < image.getWidth(); i++) {
+            for(int j = 0; j < image.getHeight(); j++) {
+                image.setRGB(i, j, primCol.getColor(c[i][j]).getRGB());
+            }
+        }
 
         File output = new File("Modded.jpg");
         ImageIO.write(image, "jpg", output);

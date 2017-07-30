@@ -43,7 +43,7 @@ public class RGBColor {
     }
 
     public boolean clean() {
-//        return r <= 100 && g <= 100 && b <= 100 || r >= 200 && g >= 200 && b >= 200;
+
         return 200 <= r && r <= 255 && 200 <= g && g <= 255 && 200 <= b && b <= 255 || r <= 100 && g <= 100 && b <= 100 ;
     }
 
