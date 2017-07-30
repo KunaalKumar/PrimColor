@@ -55,10 +55,11 @@ public class Main {
 
         ArrayList<RGBColor> newUpList = new ArrayList<>();
 
-        // Clean up list for whites and blacks
+        // Clean up list for whites, blacks and other dulls.
         for(int i = 0; i < colorList.size(); i++) {
             System.out.println("Checking" + colorList.get(i));
-            if(!colorList.get(i).clean()) {
+            if(colorList.get(i).toAdd()) {
+                System.out.println("Adding " + colorList.get(i));
                 newUpList.add(colorList.get(i));
             }
         }

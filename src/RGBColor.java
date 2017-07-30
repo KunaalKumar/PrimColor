@@ -42,9 +42,23 @@ public class RGBColor {
         return false;
     }
 
-    public boolean clean() {
-
-        return 200 <= r && r <= 255 && 200 <= g && g <= 255 && 200 <= b && b <= 255 || r <= 100 && g <= 100 && b <= 100 ;
+    public boolean toAdd() {
+        if(r == g && g == b) {
+            return false;
+        }
+        if(r == 255 && g ==  255) {
+            return b <= 100;
+        }
+        if(r == 255 && b == 255) {
+            return g <= 100;
+        }
+        if(g == 255 && b == 255) {
+            return r <= 100;
+        }
+        if(r / 100 == 2 && g / 100 == 2 && b /100 == 2) {
+            return false;
+        }
+        return 130 <= r && r <= 255 && 130 <= g && g <= 255 && 130 <= b && b <= 255;
     }
 
     public String toString() {
