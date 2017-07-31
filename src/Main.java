@@ -82,7 +82,7 @@ public class Main {
             }
         }
 
-        File output = new File("Modded.jpg");
+        File output = new File(dialog.getFile() + "-Modded");
         ImageIO.write(image, "jpg", output);
 
     }
